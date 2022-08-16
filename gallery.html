@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+
+
+
+    <div class="container">
+        <div class="videos-list">
+            <video src="gallery/2021-12-06-021102003.mp4" class="active"></video>
+            <video src="gallery/2021-12-06-021420094.mp4"></video>
+            <video src="gallery/2021-12-06-021540700.mp4"></video>
+            <video src="gallery/2021-12-06-021102003.mp4"></video>
+            <video src="gallery/2021-12-06-021420094.mp4"></video>
+            <video src="gallery/2021-12-06-021540700.mp4"></video>
+            
+        </div>
+        <div class="main-video">
+            <video src="gallery/2021-12-06-021102003.mp4" controls autoplay></video>
+        </div>
+    </div>
+
+
+    <script>
+        $(document).ready(function(){
+           $('.videos-list video').click(function(){
+              
+               $(this).addClass('active').siblings().removeClass('active');
+               let src=$(this).attr('src');
+               $('.main-video video').attr('src',src);
+               
+           });
+        });
+    </script>
+    
+     
+
+
+
+
+</body>
+</html>

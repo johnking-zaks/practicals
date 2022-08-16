@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>file reader</title>
+</head>
+<body>
+    <h1>Video Reader</h1>
+    <input type="file" accept="video/*" id="upload" onchange="videoReader()">
+    <video id="video" width="20%" height="10%" controls autoplay>
+        <source>
+    </video>
+
+    <script>
+        function videoReader(){
+            var input=document.getElementById('upload');
+            var freader=new FileReader();
+            freader.readAsDataURL(input.files[0]);
+            freader.onload=()=>{
+                document.getElementById("video").src=freader.result;
+            }
+        }
+    </script>
+
+<h1>Images Reader</h1>
+<input type="file" accept="images/*" id="upload2" onchange="imgReader()">
+<img id="img" width="20%" height="20%" src="">
+
+<script>
+    function imgReader(){
+        var input=document.getElementById('upload2');
+        var freader2=new FileReader();
+        freader2.readAsDataURL(input.files[0]);
+        freader2.onload=()=>{
+            document.getElementById('img').src=freader2.result;
+        }
+    }
+</script>
+
+
+<h1>text files Reader</h1>
+<input type="file"  id="upload3" onchange="textReader()">
+<div id="text"></div>
+
+<script>
+    function textReader(){
+        var input=document.getElementById('upload3');
+        var freader3=new FileReader();
+        freader3.readAsText(input.files[0]);
+        freader3.onload=()=>{
+            document.getElementById('text').innerHTML=freader3.result;
+        }
+    }
+</script>
+
+</body>
+</html>
